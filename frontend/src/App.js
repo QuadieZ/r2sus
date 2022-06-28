@@ -8,10 +8,12 @@ function App() {
   return (
     <Box w="100vw" h="100vh" bgGradient="linear(to-b, brand.secondary, brand.primary)" pos="absolute" top={0} right={0}>
       <NavigationBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/class" element={<Class />} />
-      </Routes>
+      <Box w="100vw" h="100%" pt="10vh">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/class" element={<Class />} />
+        </Routes>
+      </Box>
     </Box>
   );
 }

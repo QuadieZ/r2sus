@@ -1,8 +1,10 @@
-import { Text } from '@chakra-ui/react'
+import Leaderboard from '../components/Leaderboard/Leaderboard'
 
 const Home = () => {
     return (
-        <Text>This is home</Text>
+        <>
+            <Leaderboard />
+        </>
     )
 }
 

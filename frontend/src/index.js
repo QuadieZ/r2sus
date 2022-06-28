@@ -28,6 +28,9 @@ const theme = extendTheme({
     bg: {
       light: 'white',
       active: '#FBE0CA'
+    },
+    border: {
+      light: '#E0D7D5'
     }
   }
 })

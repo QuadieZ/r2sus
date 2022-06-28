@@ -36,16 +36,16 @@ const NavigationSearchBar = () => {
 
 const NavigationBar = () => {
     return (
-        <Flex w="100vw" bg="bg.light" pos="absolute" justify="space-between" px={12} py={4}>
+        <Flex w="100vw" bg="bg.light" pos="fixed" justify="space-between" px={12} h="10vh" border="1px" borderColor="border.light">
             <Flex align="center" gap={10}>
-                <Text fontWeight="semibold" fontSize="lg" color="content.primary">R2SUS</Text>
+                <Text fontWeight="semibold" fontSize="xl" color="content.primary">R2SUS</Text>
                 <NavigationSearchBar />
             </Flex>
-            <Flex align="center" gap={12}>
+            <Flex align="center" gap="5vw">
                 {paths.map(el => (
-                    <Link to={el.route}><Text fontWeight="medium" fontSize="sm" color="content.primary">{el.name}</Text></Link>
+                    <Link to={el.route} key={el.name}><Text fontWeight="medium" fontSize="md" color="content.primary" _hover={{ letterSpacing: 1, transition: '0.3s' }}>{el.name}</Text></Link>
                 ))}
-                <Link to="/profile"><ProfileIcon boxSize={6} color="content.primary" /></Link>
+                <Link to="/profile"><ProfileIcon boxSize={7} color="content.primary" /></Link>
             </Flex>
         </Flex >)
 }
