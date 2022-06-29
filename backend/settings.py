@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'r2sus'
 ]
 
+AUTH_USER_MODEL = 'r2sus.User'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
