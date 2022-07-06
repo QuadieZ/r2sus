@@ -13,3 +13,11 @@ class Todo(models.Model):
 class User(AbstractUser):
     pass
 
+class Rank(models.Model):
+    userId = models.CharField(max_length=7)
+    username = models.CharField(max_length=20)
+    score = models.CharField(max_length=20)
+
+    def _str_(self):
+        return self.userId
+
