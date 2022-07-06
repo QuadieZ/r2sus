@@ -1,7 +1,7 @@
 import { EmptyState } from '../components/EmptyState'
 
-const Class = () => {
+const Marketplace = () => {
     return (<EmptyState />)
 }
 
-export default Class
+export default Marketplace

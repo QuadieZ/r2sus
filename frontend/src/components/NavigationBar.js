@@ -38,7 +38,7 @@ const NavigationBar = () => {
     return (
         <Flex w="100vw" bg="bg.light" pos="fixed" justify="space-between" px={12} h="10vh" border="1px" borderColor="border.light">
             <Flex align="center" gap={10}>
-                <Text fontWeight="semibold" fontSize="xl" color="content.primary">R2SUS</Text>
+                <Link to="/"><Text fontWeight="semibold" fontSize="xl" color="content.primary">R2SUS</Text></Link>
                 <NavigationSearchBar />
             </Flex>
             <Flex align="center" gap="5vw">
