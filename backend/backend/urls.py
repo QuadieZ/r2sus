@@ -20,6 +20,7 @@ from r2sus import views
 
 router = routers.DefaultRouter()
 router.register(r'r2sus', views.R2susView, 'todo')
+router.register(r'rank', views.RankView, 'rank')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

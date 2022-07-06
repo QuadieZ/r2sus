@@ -1,7 +1,7 @@
 import { EmptyState } from '../components/EmptyState'
 
-const Class = () => {
+const Profile = () => {
     return (<EmptyState />)
 }
 
-export default Class
+export default Profile

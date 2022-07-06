@@ -1,8 +1,8 @@
 import { Text, HStack, Image } from "@chakra-ui/react";
 
 const RankingItem = (props) => {
-    const { rank, profileImage, name, score, isCurrentUser, ...rest } = props;
-    console.log(isCurrentUser);
+    const { rank, profileImage, username, score, isCurrentUser, ...rest } = props;
+
     return (
         <HStack
             fontSize="sm"
@@ -17,8 +17,8 @@ const RankingItem = (props) => {
             <HStack justify="flex-start" gap={3}>
                 <Text>#{rank}</Text>
                 <HStack>
-                    <Image src={profileImage} boxSize="5vh" borderRadius="full" />
-                    <Text>{name}</Text>
+                    <Image src={profileImage ?? 'https://picsum.photos/200/200'} boxSize="5vh" borderRadius="full" />
+                    <Text>{username}</Text>
                 </HStack>
             </HStack>
             <Text>{score.replace(",", " ")}</Text>

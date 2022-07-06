@@ -1,7 +1,7 @@
 import { EmptyState } from '../components/EmptyState'
 
-const Class = () => {
+const Activity = () => {
     return (<EmptyState />)
 }
 
-export default Class
+export default Activity
