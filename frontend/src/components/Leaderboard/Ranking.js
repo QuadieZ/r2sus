@@ -23,10 +23,8 @@ const findCurrentUserData = (allData, currentId) => {
 
 export const Ranking = () => {
     const [data, setData] = useState([])
-    useMemo(() => axios.get("https://r2sus-backend.herokuapp.com/api/rank/", {
-        header: {
-            'Access-Control-Allow-Origin': 'https://r2sus-backend.herokuapp.com/',
-        },
+    useMemo(() => axios.get("https://r2sus-backend.herokuapp.com/api/rank/", (res, req) => {
+        res.headers = { 'Access-Control-Allow-Origin': '*' }
     }).then((res) => setData(res.data)).catch((err) => console.error(err)), [])
 
     const rankedData = sortByRanking(data)
