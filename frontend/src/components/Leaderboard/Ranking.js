@@ -25,7 +25,6 @@ const corsOptions = {
     origin: ["https://r2sus-backend.herokuapp.com/"],
     preflightContinue: false,
     credentials: true,
-    headers: { "Access-Control-Allow-Origin": "*", }
 }
 
 export const Ranking = () => {
