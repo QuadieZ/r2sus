@@ -1,13 +1,10 @@
 import { Box } from '@chakra-ui/react'
 import { Routes, Route } from "react-router-dom";
 import NavigationBar from './components/NavigationBar';
-import axios from "axios";
 
 import { Home, Class, Activity, Marketplace, About, Profile } from './pages'
 
 function App() {
-  axios.get("/api/r2sus/").then((res) => console.log(res.data)).catch((err) => console.error(err))
-
   return (
     <Box w="100vw" h="100vh" bgGradient="linear(to-b, brand.secondary, brand.primary)" pos="absolute" top={0} right={0}>
       <NavigationBar />

@@ -29,7 +29,10 @@ const corsOptions = {
 
 export const Ranking = () => {
     const [data, setData] = useState([])
-    useMemo(() => axios.get("https://r2sus-backend.herokuapp.com/api/rank", corsOptions
+    useMemo(() => axios.get("https://r2sus-backend.herokuapp.com/api/rank", (res, req) => {
+        res.header = { "Access-Control-Allow-Origin": '*' }
+        res.credentials = true
+    }
     ).then((res) => setData(res.data)).catch((err) => console.error(err)), [])
 
     const rankedData = sortByRanking(data)
