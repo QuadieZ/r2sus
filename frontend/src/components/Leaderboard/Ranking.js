@@ -21,11 +21,17 @@ const findCurrentUserData = (allData, currentId) => {
     return data
 }
 
+const corsOptions = {
+    "Access-Control-Allow-Origin": "*",
+    origin: ["https://r2sus-backend.herokuapp.com/"],
+    preflightContinue: false,
+    credentials: true
+}
+
 export const Ranking = () => {
     const [data, setData] = useState([])
-    useMemo(() => axios.get("https://r2sus-backend.herokuapp.com/api/rank/", (res, req) => {
-        res.headers = { 'Access-Control-Allow-Origin': '*' }
-    }).then((res) => setData(res.data)).catch((err) => console.error(err)), [])
+    useMemo(() => axios.get("https://r2sus-backend.herokuapp.com/api/rank/", corsOptions
+    ).then((res) => setData(res.data)).catch((err) => console.error(err)), [])
 
     const rankedData = sortByRanking(data)
     console.log(rankedData)
