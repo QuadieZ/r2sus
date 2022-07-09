@@ -24,8 +24,8 @@ const findCurrentUserData = (allData, currentId) => {
 export const Ranking = () => {
     const [data, setData] = useState([])
     useMemo(() => axios.get("https://r2sus-backend.herokuapp.com/api/rank/", {
-        headers: {
-            'Access-Control-Allow-Origin': '*',
+        header: {
+            'Access-Control-Allow-Origin': 'https://r2sus-backend.herokuapp.com/',
         },
     }).then((res) => setData(res.data)).catch((err) => console.error(err)), [])
 
