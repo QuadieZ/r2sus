@@ -22,10 +22,10 @@ const findCurrentUserData = (allData, currentId) => {
 }
 
 const corsOptions = {
-    "Access-Control-Allow-Origin": "*",
     origin: ["https://r2sus-backend.herokuapp.com/"],
     preflightContinue: false,
-    credentials: true
+    credentials: true,
+    headers: { "Access-Control-Allow-Origin": "*", }
 }
 
 export const Ranking = () => {
