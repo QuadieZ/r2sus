@@ -9,7 +9,7 @@ import * as am5percent from "@amcharts/amcharts5/percent";
 import * as am5xy from "@amcharts/amcharts5/xy";
 import { Box } from "@chakra-ui/react";
 
-function Pie(props) {
+function PieMobile(props) {
     //const chart = useRef(null);
     const chartID = props.chartID;
     console.log({ chartID });
@@ -17,10 +17,9 @@ function Pie(props) {
     useLayoutEffect(() => {
         //var root = am5.Root.new("chartdiv2");
         var root = am5.Root.new(chartID);
-
         // Set themes
         // https://www.amcharts.com/docs/v5/concepts/themes/
-        root.setThemes([am5themes_Animated.new(root), am5themes_Responsive.new(root)]);
+        root.setThemes([am5themes_Animated.new(root)], [am5themes_Responsive.new(root)]);
 
         let data = [{
             name: "Monica",
@@ -65,6 +64,7 @@ function Pie(props) {
         let chart = root.container.children.push(
             am5xy.XYChart.new(root, {
                 panX: false,
+                zIndex: 0,
                 panY: false,
                 wheelX: "none",
                 wheelY: "none",
@@ -72,16 +72,15 @@ function Pie(props) {
                 paddingTop: 40
             })
         );
-
         // Create axes
         // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-
+        chart.seriesContainer.zIndex = -1;
         let xRenderer = am5xy.AxisRendererX.new(root, {});
         xRenderer.grid.template.set("visible", false);
 
         let xAxis = chart.xAxes.push(
             am5xy.CategoryAxis.new(root, {
-                paddingTop: 40,
+                paddingTop: 20,
                 categoryField: "name",
                 renderer: xRenderer,
                 autoGridCount: false,
@@ -131,82 +130,6 @@ function Pie(props) {
             fillOpacity: 0.8
         });
 
-        let currentlyHovered;
-
-        series.columns.template.events.on("pointerover", function (e) {
-            handleHover(e.target.dataItem);
-        });
-
-        series.columns.template.events.on("pointerout", function (e) {
-            handleOut();
-        });
-
-        function handleHover(dataItem) {
-            if (dataItem && currentlyHovered != dataItem) {
-                handleOut();
-                currentlyHovered = dataItem;
-                let bullet = dataItem.bullets[0];
-                bullet.animate({
-                    key: "locationY",
-                    to: 1,
-                    duration: 600,
-                    easing: am5.ease.out(am5.ease.cubic)
-                });
-            }
-        }
-
-        function handleOut() {
-            if (currentlyHovered) {
-                let bullet = currentlyHovered.bullets[0];
-                bullet.animate({
-                    key: "locationY",
-                    to: 0,
-                    duration: 600,
-                    easing: am5.ease.out(am5.ease.cubic)
-                });
-            }
-        }
-
-        let circleTemplate = am5.Template.new({});
-
-        series.bullets.push(function (root, series, dataItem) {
-            let bulletContainer = am5.Container.new(root, {});
-            let circle = bulletContainer.children.push(
-                am5.Circle.new(
-                    root,
-                    {
-                        radius: 34
-                    },
-                    circleTemplate
-                )
-            );
-
-            let maskCircle = bulletContainer.children.push(
-                am5.Circle.new(root, { radius: 27 })
-            );
-
-            // only containers can be masked, so we add image to another container
-            let imageContainer = bulletContainer.children.push(
-                am5.Container.new(root, {
-                    mask: maskCircle
-                })
-            );
-
-            let image = imageContainer.children.push(
-                am5.Picture.new(root, {
-                    templateField: "pictureSettings",
-                    centerX: am5.p50,
-                    centerY: am5.p50,
-                    width: 60,
-                    height: 60
-                })
-            );
-
-            return am5.Bullet.new(root, {
-                locationY: 0,
-                sprite: bulletContainer
-            });
-        });
 
         // heatrule
         series.set("heatRules", [
@@ -214,16 +137,10 @@ function Pie(props) {
                 dataField: "valueY",
                 min: am5.color(0xF9F9C5),
                 max: am5.color(0x90C8AC),
+                zIndex: 0,
                 target: series.columns.template,
                 key: "fill"
             },
-            {
-                dataField: "valueY",
-                min: am5.color(0xF9F9C5),
-                max: am5.color(0x90C8AC),
-                target: circleTemplate,
-                key: "fill"
-            }
         ]);
 
         series.data.setAll(data);
@@ -233,21 +150,14 @@ function Pie(props) {
         cursor.lineX.set("visible", false);
         cursor.lineY.set("visible", false);
 
-        cursor.events.on("cursormoved", function () {
-            let dataItem = series.get("tooltip").dataItem;
-            if (dataItem) {
-                handleHover(dataItem);
-            } else {
-                handleOut();
-            }
-        });
-
         // Make stuff animate on load
         // https://www.amcharts.com/docs/v5/concepts/animations/
         series.appear();
+        chart.zIndex = 0
+        series.zIndex = 0
         chart.appear(1000, 100);
     }, [chartID]);
 
-    return <Box id={chartID} style={{ height: '80%', width: '100%' }} display={['none', 'none', 'none', 'block']}></Box>;
+    return <Box id={chartID} style={{ height: '80%', width: '100%' }} display={['block', 'block', 'block', 'none']} zIndex={0}></Box>;
 }
-export default Pie;
+export default PieMobile;
