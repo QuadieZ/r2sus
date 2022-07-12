@@ -23,43 +23,36 @@ function Pie(props) {
         root.setThemes([am5themes_Animated.new(root), am5themes_Responsive.new(root)]);
 
         let data = [{
-            name: "Monica",
+            name: "Engineering",
             steps: 45688,
             pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg"
+                src: "https://picsum.photos/400/400"
             }
         }, {
-            name: "Joey",
+            name: "Science",
             steps: 35781,
             pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/joey.jpg"
+                src: "https://picsum.photos/400/400"
             }
         }, {
-            name: "Ross",
+            name: "Liberal Arts",
             steps: 25464,
             pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/ross.jpg"
+                src: "https://picsum.photos/400/400"
             }
         }, {
-            name: "Phoebe",
+            name: "IT",
             steps: 18788,
             pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/phoebe.jpg"
+                src: "https://picsum.photos/400/400"
             }
         }, {
-            name: "Rachel",
+            name: "Architecture",
             steps: 15465,
             pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/rachel.jpg"
+                src: "https://picsum.photos/400/400"
             }
-        }, {
-            name: "Chandler",
-            steps: 11561,
-            pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/chandler.jpg"
-            }
-        }];
-
+        }]
         // Create chart
         // https://www.amcharts.com/docs/v5/charts/xy-chart/
         let chart = root.container.children.push(
@@ -77,7 +70,7 @@ function Pie(props) {
         // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
 
         let xRenderer = am5xy.AxisRendererX.new(root, {});
-        xRenderer.grid.template.set("visible", false);
+        xRenderer.grid.template.set("visible", true);
 
         let xAxis = chart.xAxes.push(
             am5xy.CategoryAxis.new(root, {

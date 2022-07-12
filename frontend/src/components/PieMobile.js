@@ -22,43 +22,21 @@ function PieMobile(props) {
         root.setThemes([am5themes_Animated.new(root)], [am5themes_Responsive.new(root)]);
 
         let data = [{
-            name: "Monica",
+            name: "En",
             steps: 45688,
-            pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/monica.jpg"
-            }
         }, {
-            name: "Joey",
+            name: "Sc",
             steps: 35781,
-            pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/joey.jpg"
-            }
         }, {
-            name: "Ross",
+            name: "LA",
             steps: 25464,
-            pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/ross.jpg"
-            }
         }, {
-            name: "Phoebe",
+            name: "IT",
             steps: 18788,
-            pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/phoebe.jpg"
-            }
         }, {
-            name: "Rachel",
+            name: "Arc",
             steps: 15465,
-            pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/rachel.jpg"
-            }
-        }, {
-            name: "Chandler",
-            steps: 11561,
-            pictureSettings: {
-                src: "https://www.amcharts.com/wp-content/uploads/2019/04/chandler.jpg"
-            }
-        }];
-
+        }]
         // Create chart
         // https://www.amcharts.com/docs/v5/charts/xy-chart/
         let chart = root.container.children.push(
@@ -76,7 +54,7 @@ function PieMobile(props) {
         // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
         chart.seriesContainer.zIndex = -1;
         let xRenderer = am5xy.AxisRendererX.new(root, {});
-        xRenderer.grid.template.set("visible", false);
+        xRenderer.grid.template.set("visible", true);
 
         let xAxis = chart.xAxes.push(
             am5xy.CategoryAxis.new(root, {
