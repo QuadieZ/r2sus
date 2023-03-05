@@ -11,7 +11,7 @@ Was created as a part of Innovation for KMUTT Sustainability competition
 - Django
 
 ## Deploy
-https://kinkaow.netlify.app/
+https://www.r2sus.app/
 
 ## About the project
 This was the first project that I (kind of) finished both front-end and back-end.
